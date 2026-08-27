@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+title: Termux + Cursor integration
+message: If you use this kit, cite it as below.
+type: software
+authors:
+  - family-names: CynicalTyr
+    website: https://github.com/CynicalTyr
+repository-code: https://github.com/CynicalTyr/termux-cursor-integration
+license: MIT
+abstract: >
+  Unofficial kit to run the official Linux ARM64 Cursor CLI (agent)
+  inside Ubuntu in F-Droid Termux on aarch64 Android.

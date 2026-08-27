@@ -1,0 +1,5 @@
+The Termux autobuilds apt key (fetched or vendored as
+`keys/termux-autobuilds.gpg`) comes from `termux/termux-packages`
+(`packages/termux-keyring/termux-autobuilds.gpg`). It is not part of the MIT
+grant for this kit’s scripts; keep Termux’s terms when redistributing that
+file.

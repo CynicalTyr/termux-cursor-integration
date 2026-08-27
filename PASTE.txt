@@ -1,0 +1,103 @@
+Cursor CLI on Android. Paste this in F-Droid Termux
+====================================================
+
+Termux from F-Droid only:
+https://f-droid.org/packages/com.termux
+
+Not Play Store Termux. Not Termius. Not a random terminal app.
+Downloads is noexec: always bash script.sh  never  ./script.sh
+agent does not exist at the normal Termux ~ $ prompt.
+
+------------------------------------------------
+0) Storage (new Termux: empty home is normal)
+------------------------------------------------
+
+termux-setup-storage
+
+Tap Allow. Then find this folder under ~/storage/downloads
+(or copy it there from USB/SMB). cd into it. Example:
+
+cd ~/storage/downloads/termux-cursor-integration
+ls install.sh apply-agent-path.sh
+
+If cd fails, ls ~/storage/downloads and use the real name.
+
+------------------------------------------------
+1) Install (once). Large Ubuntu download. Wait.
+------------------------------------------------
+
+chmod +x install.sh apply-agent-path.sh ubuntu-agent-path.sh enter-ubuntu.sh host-proot-login.sh install-cursor-agent-proot.sh proot-inner-stage-a.sh install-termux-autobuilds-key.sh diagnose.sh install-shortcuts.sh
+bash install.sh
+
+PASS: agent --version and Stage A inner: PASS
+
+Do not pkg upgrade the whole prefix. Do not rewrite
+sources.list. Do not run curl cursor.com/install in Termux
+itself.
+
+------------------------------------------------
+2) ubuntu command (Termux PATH)
+------------------------------------------------
+
+cd ~/storage/downloads/termux-cursor-integration
+chmod +x install-shortcuts.sh host-proot-login.sh
+bash install-shortcuts.sh
+hash -r
+ubuntu
+
+Wait for root@localhost.
+
+------------------------------------------------
+3) agent on PATH (if command not found)
+------------------------------------------------
+
+From Termux ~ $  (exit Ubuntu first if you are inside it):
+
+cd ~/storage/downloads/termux-cursor-integration
+chmod +x apply-agent-path.sh host-proot-login.sh ubuntu-agent-path.sh
+bash apply-agent-path.sh
+
+Already at root@localhost:~#  instead:
+
+sh /data/data/com.termux/files/home/storage/downloads/termux-cursor-integration/ubuntu-agent-path.sh
+
+Then exit, ubuntu again, then:
+
+agent --version
+export NO_OPEN_BROWSER=1
+agent login
+
+Open the URL on the phone. Then:
+
+pwd
+agent
+
+pwd should be /data/data/com.termux/files/home
+That is Termux home. Type exit when done.
+
+------------------------------------------------
+4) Every later session
+------------------------------------------------
+
+ubuntu
+agent
+
+Do not type agent at the normal Termux ~ $ prompt.
+
+------------------------------------------------
+Phone settings (or the session dies)
+------------------------------------------------
+
+Apps -> Termux -> Battery -> Unrestricted.
+Never sleeping apps -> Termux.
+Developer options -> Disable child process restrictions
+(Android 14+). Reboot. Keep Developer options on.
+Termux notification -> Acquire wakelock while agent runs.
+
+------------------------------------------------
+If install fails
+------------------------------------------------
+
+Play Termux: uninstall it, install F-Droid Termux, start
+over. Guest Permission denied on /usr/bin/sh: this device
+cannot run Ubuntu-in-Termux. Stop.

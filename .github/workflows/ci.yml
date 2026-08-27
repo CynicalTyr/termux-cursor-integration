@@ -1,0 +1,32 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: bash -n
+        run: |
+          bash -n install.sh apply-agent-path.sh ubuntu-agent-path.sh \
+            enter-ubuntu.sh host-proot-login.sh install-cursor-agent-proot.sh \
+            proot-inner-stage-a.sh install-termux-autobuilds-key.sh \
+            diagnose.sh install-shortcuts.sh \
+            skills/yt-dlp/scripts/check_ytdlp.sh
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: validate skills
+        run: |
+          set -e
+          for d in skills/*/SKILL.md; do
+            python3 skills/new-skill/scripts/validate_skill.py "$(dirname "$d")"
+          done
+      - name: pin Termux autobuilds key
+        run: |
+          curl -fsSL -o /tmp/termux-autobuilds.gpg \
+            https://raw.githubusercontent.com/termux/termux-packages/master/packages/termux-keyring/termux-autobuilds.gpg
+          echo "21c385d5a30107453bd60582d64e2f6e5f5ce11e340ac05e57f943f9c0235420  /tmp/termux-autobuilds.gpg" | sha256sum -c
+          grep -F 21c385d5a30107453bd60582d64e2f6e5f5ce11e340ac05e57f943f9c0235420 install-termux-autobuilds-key.sh

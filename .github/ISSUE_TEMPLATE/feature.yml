@@ -1,0 +1,18 @@
+name: Feature
+description: A change that would help a human on F-Droid Termux
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: who
+    attributes:
+      label: Who it helps
+    validations:
+      required: true
+  - type: textarea
+    id: demo
+    attributes:
+      label: Command that would prove it
+      description: What you type in Termux or Ubuntu, and what PASS looks like.
+    validations:
+      required: true

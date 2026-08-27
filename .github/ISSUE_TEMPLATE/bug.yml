@@ -1,0 +1,35 @@
+name: Bug
+description: Something does not match START_HERE or README
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected
+      description: What START_HERE.md says should happen
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual
+    validations:
+      required: true
+  - type: dropdown
+    id: termux
+    attributes:
+      label: Termux build
+      options:
+        - F-Droid (com.termux)
+        - Play Store (googleplay.*)
+        - Unsure
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Repro (no secrets)
+      description: Commands and redacted output. No cookies, login URLs, or .env dumps. Include TERMUX_VERSION and uname -m if you can.
+    validations:
+      required: true
