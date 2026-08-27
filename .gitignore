@@ -1,0 +1,11 @@
+.DS_Store
+*.pyc
+__pycache__/
+.env
+.env.*
+!.env.example
+id_rsa
+id_ed25519
+*.pem
+cookies.txt
+.cursor/cli-config.json
