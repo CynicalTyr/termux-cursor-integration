@@ -8,6 +8,11 @@ this. The Termux build that works is **F-Droid**:
 
 https://f-droid.org/packages/com.termux
 
+Ubuntu here is **userspace** (`proot-distro`) on the Android kernel, not a
+virtual machine. Binaries are native arm64. `agent` edits Termux `$HOME` on
+this device. It does not boot a guest OS and does not replace a container
+host.
+
 Verified on a Samsung S24 (aarch64): `agent` `2026.08.25-3e8eec8` inside
 Ubuntu, working directory = Termux `$HOME` (`/data/data/com.termux/files/home`).
 
@@ -29,6 +34,7 @@ they cannot be installed together.
 - 32-bit phones. The artifact this kit installs is `linux/arm64`.
 - Anyone looking for an official Cursor Android product. This is unofficial glue.
 - Termius or other SSH apps. Those talk to a remote box; they do not host `agent` on the phone.
+- A guest Linux on the phone (QEMU or hardware virt), Podman/Docker/LXC, or an X11 desktop. Userspace Ubuntu does not provide those.
 - Workspaces under other apps’ `/data/data/<pkg>` or Android `/system`. Stay in Termux home.
 
 ## First success

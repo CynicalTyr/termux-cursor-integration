@@ -23,8 +23,10 @@ bash -n install.sh apply-agent-path.sh ubuntu-agent-path.sh enter-ubuntu.sh \
   install-termux-autobuilds-key.sh diagnose.sh install-shortcuts.sh
 ```
 
-Do not expand this into a Cursor Android port, a Play Termux workaround, or a
-Bionic `node` shim. Those already failed.
+Do not expand this into a Cursor Android port, a Play Termux workaround, a
+Bionic `node` shim, or a guest-kernel VM / container host. The first three
+already failed. A guest Linux is a different job (second OS, extra RAM);
+this kit is userspace Ubuntu on the Android kernel.
 
 Issues: one problem per ticket. Feature ideas: who it helps, and the command
 that would prove it on F-Droid Termux.

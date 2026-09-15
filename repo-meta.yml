@@ -1,5 +1,5 @@
 github_repo: termux-cursor-integration
-description: Termux + Cursor integration. Official linux/arm64 Cursor CLI inside Ubuntu in F-Droid Termux.
+description: Official linux/arm64 Cursor CLI inside userspace Ubuntu (proot) in F-Droid Termux. Not a Linux VM.
 homepage: START_HERE.md
 private: false
 topics: termux,android,cursor,cli,proot,aarch64

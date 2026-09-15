@@ -5,8 +5,10 @@ Termux from F-Droid only:
 https://f-droid.org/packages/com.termux
 
 Not Play Store Termux. Not Termius. Not a random terminal app.
+Not a Linux VM. Ubuntu here is userspace (proot) on the Android kernel.
 Downloads is noexec: always bash script.sh  never  ./script.sh
 agent does not exist at the normal Termux ~ $ prompt.
+agent runs on this phone and edits Termux home.
 
 ------------------------------------------------
 0) Storage (new Termux: empty home is normal)
@@ -101,3 +103,5 @@ If install fails
 Play Termux: uninstall it, install F-Droid Termux, start
 over. Guest Permission denied on /usr/bin/sh: this device
 cannot run Ubuntu-in-Termux. Stop.
+Need Podman, Docker, or a Linux desktop instead: this kit
+will not grow those. Stop and use a real VM or a PC.

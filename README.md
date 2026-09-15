@@ -23,6 +23,22 @@ Ubuntu**. A login Ubuntu shell also omits `~/.local/bin` until
 Fail closed if that version command fails. Do not install Cursor into stock
 Termux. Do not swap in Termux Node or rebuild sqlite inside the agent tree.
 
+## How this is different
+
+`agent` runs on this phone: native `aarch64`, official Linux CLI, inside
+Ubuntu in F-Droid Termux. The kernel is Android's. Ubuntu is a userspace
+rootfs (`proot-distro`). There is no guest kernel, no emulated CPU, and
+no RAM reserved for a second OS.
+
+Daily path: `ubuntu`, then `agent`. Workspace is Termux `$HOME`. Shared
+storage is **noexec**.
+
+Leave this kit if the job is a guest Linux (QEMU or hardware virt),
+Podman/Docker/LXC, or an X11 desktop. Userspace Ubuntu does not provide
+those. SSH and cloud agents are a different job: they do not edit Termux
+home. Installing Cursor into stock Termux is the glibc/`e_type: 2` path
+this kit already refuses.
+
 ## Repository layout
 
 | File | What it does | What you change it for |
@@ -76,6 +92,7 @@ These show up after someone else runs the kit on a real phone.
 | Cause → effect | Login shell PATH omits `/root/.local/bin` until `ubuntu-agent-path.sh`. Symptom is `agent: command not found` after a “successful” install. |
 | Second-order | Pointing the agent at another app’s `/data/data/<pkg>` or `/system` looks like a bigger workspace. This kit refuses that. Stay in Termux home. |
 | Risk if copied blindly | Community gists that `npm i sqlite3` inside the agent tree, Bionic “install Cursor in Termux” scripts, and `[trusted=yes]` apt. Fail closed instead. |
+| Guest vs userspace | A Linux VM on the phone is a second OS (guest kernel, extra RAM, often containers or a desktop). This kit is one kernel: Android’s. Do not size a VM next to `agent` and call it the same setup. |
 
 ## License
 
