@@ -97,3 +97,9 @@ These show up after someone else runs the kit on a real phone.
 ## License
 
 MIT. See `LICENSE`.
+
+## Coffee and energy fund
+
+If this kit got `agent` running on the phone and you want more of that kind of work, you can support CynicalTyr's coffee and energy fund. Suggestion only.
+
+<a title="Donate with PayPal" href="https://www.paypal.me/ctmskm" target="_blank" rel="noopener"><img src="https://moosenet.lol/web_images/paypal-logo.png" alt="" width="140" height="50" /></a><a title="Donate with CashApp" href="https://cash.app/$MooseMeNow" target="_blank" rel="noopener"><img src="https://moosenet.lol/web_images/cashapp-logo.png" alt="" width="140" height="55" /></a> <a title="Donate with Venmo" href="https://venmo.com/MooseMeNow" target="_blank" rel="noopener"><img src="https://moosenet.lol/web_images/venmo-logo-600x188.png" alt="" width="140" height="50" /></a>
